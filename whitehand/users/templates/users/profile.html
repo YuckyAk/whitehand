@@ -1,0 +1,25 @@
+{% extends 'handmade/index.html' %}
+{%block oznokom%} {%endblock%}
+{% load static %}
+{%block main%}
+
+<div class="wrapper1">
+    <div class="profile">
+        <div class="overlay">
+            <div class="about d-flex flex-column">
+                <h4>{{request.user.username}}</h4>
+                <span>{{ request.user.email }}</span>
+            </div>
+            <ul class="social-icons">
+<form class="exituser" method="POST" action="{%url "logout"%}">{% csrf_token %}
+              <button> <li><img src="{% static 'img/door.png' %}" alt=""></li></button>
+</form>
+                {% if request.user.is_superuser %}
+                <li><a href="{%url 'admin_tov'%}"><img src="{% static 'img/man.png' %}" alt=""></a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

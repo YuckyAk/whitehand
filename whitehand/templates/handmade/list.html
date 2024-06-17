@@ -1,0 +1,55 @@
+{% extends 'handmade/index.html' %}
+{% load static %}
+{%block oznokom%} {%endblock%}
+{%block main%}
+
+    <div class="card">
+      <div class="card__title">
+        <div class="icon">
+          <a href="{%url 'tovari' %}"><i class="fa fa-arrow-left"></i></a>
+        </div>
+        <h3>New products</h3>
+      </div>
+      <div class="card__body">
+        <div class="half">
+          <div class="featured_text">
+            <h2>Производитель:{{product.manufacturer}}</h2>
+            <p class="sub">Название:{{product.name}}</p>
+            <p class="price">{{product.price}}P</p>
+          </div>
+          <div class="image">
+            <img src="{{product.image.url}}" alt="">
+          </div>
+        </div>
+        <div class="half">
+          <div class="description">
+            <h2>{{product.description}}</h2>
+          </div>
+<!--        <span class="stock"><i class="fa fa-pen"></i> In stock</span>-->
+<!--          <div class="reviews">-->
+<!--            <ul class="stars">-->
+<!--              <li><i class="fa fa-star"></i></li>-->
+<!--              <li><i class="fa fa-star"></i></li>-->
+<!--              <li><i class="fa fa-star"></i></li>-->
+<!--              <li><i class="fa fa-star"></i></li>-->
+<!--              <li><i class="fa fa-star-o"></i></li>-->
+<!--            </ul>-->
+<!--            <span>(64 reviews)</span>-->
+          </div>
+        </div>
+      </div>
+      <div class="card__footer">
+        <div class="recommend">
+        </div>
+        <div class="action">
+        </div>
+      </div>
+    </div>
+ {%endblock%}
+
+
+
+
+
+
+

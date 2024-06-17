@@ -1,0 +1,27 @@
+{% extends 'handmade/index.html' %}
+{%block oznokom%} {%endblock%}
+{%block main%}
+    <h1>Страница заказа</h1>
+    <div class="order-info">
+        <h3>Заказ</h3>
+        <ul>
+            {% for item in cart %}
+                <li>
+                    {{ item.quantity }}x {{ item.product.name }}
+                    <span>${{ item.total_price }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total: ${{ cart.get_total_price }}</p>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <label>Город</label>
+    <input name="city" required>
+        <label>Адрес</label>
+    <input name="address" required>
+        <label>Почтовый индекс</label>
+    <input name="postal_code" required>
+        <input type="submit" value="Заказать">
+    </form>
+    {%endblock%}

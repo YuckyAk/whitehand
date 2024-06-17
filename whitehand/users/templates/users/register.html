@@ -1,0 +1,24 @@
+{% extends 'handmade/index.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{%block oznokom%} {%endblock%}
+{%block main%}
+<div class="content-section">
+        <form method="POST" >
+            {% csrf_token %}
+
+            <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password1">Пароль:</label>
+        <input type="password" id="password1" name="password1" required>
+            <label for="password2">Повторите пароль:</label>
+        <input type="password" id="password2" name="password2" required>
+                <button class="btn btn-outline-info" type="submit">Регистрация</button>
+        </form>
+            <p class="textmyreg">Чтобы войти нажмите <a href="{%url 'login'%}">Вход</a></p>
+    </div>
+{%endblock%}
